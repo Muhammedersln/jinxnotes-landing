@@ -51,7 +51,7 @@ export default function PrivacyPolicy() {
               1. INTRODUCTION & SERVICE PROVIDER
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              JinxNotes (&ldquo;the App&rdquo;), operated by Eraslan Medya (&ldquo;We&rdquo;, &ldquo;Us&rdquo;, or &ldquo;the Company&rdquo;), is a mobile journal and social platform for sharing daily mishaps. This Privacy Policy details how we collect, process, store, and safeguard your personal information when using the JinxNotes mobile app and web services.
+              Jinxly (&ldquo;the App&rdquo;), operated by Eraslan Medya (&ldquo;We&rdquo;, &ldquo;Us&rdquo;, or &ldquo;the Company&rdquo;), is a mobile journal and social platform for sharing daily mishaps. This Privacy Policy details how we collect, process, store, and safeguard your personal information when using the Jinxly mobile app and web services.
             </p>
           </section>
 
@@ -142,7 +142,7 @@ export default function PrivacyPolicy() {
 
       {/* FOOTER */}
       <footer className="bg-brutalist-black text-brutalist-white px-6 py-8 font-mono text-[10px] uppercase text-center mt-12">
-        <p>© 2026 JinxNotes. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 Jinxly. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
       </footer>
 
     </div>

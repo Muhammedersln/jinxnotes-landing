@@ -51,7 +51,7 @@ export default function TermsOfService() {
               1. ACCEPTANCE OF TERMS
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              By downloading JinxNotes, creating an account, or visiting our website, you agree to be fully bound by these Terms of Use (&ldquo;Terms&rdquo;). If you do not agree with any part of these Terms, you must not use or access our services.
+              By downloading Jinxly, creating an account, or visiting our website, you agree to be fully bound by these Terms of Use (&ldquo;Terms&rdquo;). If you do not agree with any part of these Terms, you must not use or access our services.
             </p>
           </section>
 
@@ -69,7 +69,7 @@ export default function TermsOfService() {
               3. COMMUNITY GUIDELINES & CONTENT MODERATION
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              JinxNotes is a space for sharing daily misfortunes in a lighthearted, humorous manner. When publishing content publicly (Public Jinxes), you must comply with the following rules:
+              Jinxly is a space for sharing daily misfortunes in a lighthearted, humorous manner. When publishing content publicly (Public Jinxes), you must comply with the following rules:
             </p>
             <ul className="list-disc list-inside space-y-2 font-sans font-bold text-sm text-zinc-700">
               <li>No hate speech, harassment, threats, slurs, or discriminatory content.</li>
@@ -105,7 +105,7 @@ export default function TermsOfService() {
               6. DISCLAIMER OF LIABILITY (COSMIC DISCLAIMER)
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              JinxNotes is designed strictly for entertainment and stress relief. Under no circumstances shall JinxNotes, Eraslan Medya, or its developers be held liable for any actual bad luck, physical clumsiness, spilled beverages, missed transit, cracked phone screens, or any other real-life misfortune that occurs after using the app. You must manage your own cosmic karma!
+              Jinxly is designed strictly for entertainment and stress relief. Under no circumstances shall Jinxly, Eraslan Medya, or its developers be held liable for any actual bad luck, physical clumsiness, spilled beverages, missed transit, cracked phone screens, or any other real-life misfortune that occurs after using the app. You must manage your own cosmic karma!
             </p>
           </section>
 
@@ -114,7 +114,7 @@ export default function TermsOfService() {
               7. AMENDMENTS
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              We reserve the right to modify these Terms of Use at any time. When updates are published, we will notify users through in-app banners or email. Continuing to use the JinxNotes platform after changes are published constitutes your complete acceptance of the updated Terms.
+              We reserve the right to modify these Terms of Use at any time. When updates are published, we will notify users through in-app banners or email. Continuing to use the Jinxly platform after changes are published constitutes your complete acceptance of the updated Terms.
             </p>
           </section>
 
@@ -123,7 +123,7 @@ export default function TermsOfService() {
 
       {/* FOOTER */}
       <footer className="bg-brutalist-black text-brutalist-white px-6 py-8 font-mono text-[10px] uppercase text-center mt-12">
-        <p>© 2026 JinxNotes. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 Jinxly. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
       </footer>
 
     </div>

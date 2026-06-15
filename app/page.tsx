@@ -75,7 +75,7 @@ export default function Home() {
 
             <p className="font-sans font-bold text-base sm:text-lg text-zinc-800 leading-relaxed max-w-xl">
               Tired of perfect lifestyles and fake highlights on social media? 
-              <strong className="text-brutalist-black"> JinxNotes</strong> is a Neo-Brutalist daily journal & social feed where you can document your everyday misfortunes, awkward clumsy moments, and bad luck, and laugh them off with a community that relates.
+              <strong className="text-brutalist-black"> Jinxly</strong> is a Neo-Brutalist daily journal & social feed where you can document your everyday misfortunes, awkward clumsy moments, and bad luck, and laugh them off with a community that relates.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-2">
@@ -84,7 +84,7 @@ export default function Home() {
               </BrutalistButton>
               <a href="#download">
                 <BrutalistButton variant="white" size="lg" rotate="rotate-[1deg]">
-                  Get JinxNotes
+                  Get Jinxly
                 </BrutalistButton>
               </a>
             </div>
@@ -111,7 +111,7 @@ export default function Home() {
               <div className="relative border-4 border-brutalist-black bg-brutalist-white rounded-3xl overflow-hidden shadow-brutalist-xl rotate-[-2deg] transition-all hover:rotate-0 duration-300">
                 <img 
                   src="/mockup.png" 
-                  alt="JinxNotes app preview" 
+                  alt="Jinxly app preview" 
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -162,7 +162,7 @@ export default function Home() {
                 </span>
                 <h3 className="font-mono font-black text-xl uppercase mt-4 mb-3">LOG IT INSTANTLY</h3>
                 <p className="font-sans font-bold text-sm text-zinc-700 leading-relaxed">
-                  Open JinxNotes, write down the mishap, and select severity (Low to Critical). The app updates your streak and immediately increments your daily Misery Meter.
+                  Open Jinxly, write down the mishap, and select severity (Low to Critical). The app updates your streak and immediately increments your daily Misery Meter.
                 </p>
               </div>
               <div className="mt-6 font-mono font-black text-[10px] text-brutalist-yellow uppercase flex items-center gap-1.5">
@@ -201,7 +201,7 @@ export default function Home() {
               TEST IT LIVE!
             </h2>
             <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-4 leading-relaxed">
-              Interact with the core features of the JinxNotes mobile app right here. Change severity meters, request sarcastic AI roasts, or react to live feed posts!
+              Interact with the core features of the Jinxly mobile app right here. Change severity meters, request sarcastic AI roasts, or react to live feed posts!
             </p>
           </div>
 
@@ -335,7 +335,7 @@ export default function Home() {
               SNEAK PEEK INSIDE
             </h2>
             <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-4 leading-relaxed">
-              Explore the interface of JinxNotes. Beautiful, premium, and built completely with raw Neo-Brutalist elements.
+              Explore the interface of Jinxly. Beautiful, premium, and built completely with raw Neo-Brutalist elements.
             </p>
           </div>
 
@@ -476,7 +476,7 @@ export default function Home() {
           </h2>
           
           <p className="font-sans font-bold text-base sm:text-xl text-brutalist-black max-w-xl mx-auto mb-10 leading-relaxed">
-            Download JinxNotes for iOS and Android today, start your bad luck streak, and laugh it off with the community.
+            Download Jinxly for iOS and Android today, start your bad luck streak, and laugh it off with the community.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -519,7 +519,7 @@ export default function Home() {
               </span>
             </div>
             <p className="text-[10px] font-bold text-zinc-500 text-center md:text-left mt-1">
-              © 2026 JinxNotes. A PROJECT BY ERASLAN MEDYA.<br />
+              © 2026 Jinxly. A PROJECT BY ERASLAN MEDYA.<br />
               ALL RIGHTS RESERVED FOR CLUMSY HUMANS.
             </p>
           </div>

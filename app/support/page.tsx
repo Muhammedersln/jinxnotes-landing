@@ -30,7 +30,7 @@ export default function SupportPage() {
     },
     {
       q: "🗺️ My location is incorrect on the Misery Map?",
-      a: "The misery map uses your device's GPS signal. Make sure your location services are active and you have granted GPS permissions to the JinxNotes app."
+      a: "The misery map uses your device's GPS signal. Make sure your location services are active and you have granted GPS permissions to the Jinxly app."
     }
   ];
 
@@ -206,7 +206,7 @@ export default function SupportPage() {
 
       {/* FOOTER */}
       <footer className="bg-brutalist-black text-brutalist-white px-6 py-8 font-mono text-[10px] uppercase text-center mt-12">
-        <p>© 2026 JinxNotes. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 Jinxly. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
       </footer>
 
     </div>

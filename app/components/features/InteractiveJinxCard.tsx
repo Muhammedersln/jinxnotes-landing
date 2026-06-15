@@ -110,7 +110,7 @@ export const InteractiveJinxCard: React.FC = () => {
             <span>12</span>
           </div>
           <button 
-            onClick={() => alert("Install JinxNotes mobile app to share or react to misfortunes!")}
+            onClick={() => alert("Install Jinxly mobile app to share or react to misfortunes!")}
             className="hover:scale-110 active:scale-95 transition-transform duration-100 cursor-pointer"
           >
             <Share2 size={16} strokeWidth={2.5} />

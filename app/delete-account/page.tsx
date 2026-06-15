@@ -51,7 +51,7 @@ export default function DeleteAccountPage() {
             DELETE ACCOUNT
           </h1>
           <p className="font-mono font-bold text-xs uppercase text-zinc-500 mt-2">
-            Permanently Delete Your JinxNotes Account and All Data
+            Permanently Delete Your Jinxly Account and All Data
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function DeleteAccountPage() {
               <Trash2 size={48} className="mx-auto text-brutalist-black animate-bounce" strokeWidth={2.5} />
               <h3 className="font-mono font-black text-xl uppercase">REQUEST RECEIVED</h3>
               <p className="font-sans font-bold text-sm text-brutalist-black leading-relaxed">
-                An email confirmation link has been sent to your address at <strong>{email}</strong>. For your security, please follow the verification steps in that message to confirm your deletion. Once verified, your JinxNotes account and all associated logs will be permanently removed.
+                An email confirmation link has been sent to your address at <strong>{email}</strong>. For your security, please follow the verification steps in that message to confirm your deletion. Once verified, your Jinxly account and all associated logs will be permanently removed.
               </p>
               <a href="/">
                 <BrutalistButton variant="white" size="sm">
@@ -87,7 +87,7 @@ export default function DeleteAccountPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="font-mono font-black text-xs uppercase text-brutalist-black">JinxNotes Email Address</label>
+                  <label className="font-mono font-black text-xs uppercase text-brutalist-black">Jinxly Email Address</label>
                   <input
                     type="email"
                     required
@@ -144,7 +144,7 @@ export default function DeleteAccountPage() {
 
       {/* FOOTER */}
       <footer className="bg-brutalist-black text-brutalist-white px-6 py-8 font-mono text-[10px] uppercase text-center mt-12">
-        <p>© 2026 JinxNotes. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 Jinxly. A PROJECT BY ERASLAN MEDYA. ALL RIGHTS RESERVED.</p>
       </footer>
 
     </div>
