@@ -28,7 +28,7 @@ export default function DeleteAccountPage() {
             <Ghost size={28} className="text-brutalist-black" strokeWidth={2.5} />
             <span className="font-mono font-black text-2xl uppercase tracking-tighter">Jinx</span>
             <span className="bg-brutalist-black text-brutalist-white px-2 py-0.5 font-mono font-black text-lg uppercase rotate-[-3deg] shadow-brutalist-sm">
-              Notes
+              ly
             </span>
           </a>
           <a href="/">

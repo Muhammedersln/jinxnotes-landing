@@ -14,8 +14,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jinxly | Günlük Şanssızlık Günlüğü & Sosyal Platformu",
-  description: "Jinxly, günlük hayatta yaşadığınız küçük felaketleri, şanssızlıkları ve nazar anlarını belgelediğiniz, toplulukla paylaştığınız ve eğlendiğiniz Neo-Brutalist şanssızlık günlüğüdür.",
+  title: "Jinxly | Daily Misfortune Log & Social Network",
+  description: "Jinxly is a Neo-Brutalist daily misfortune journal and social network where you document life's mini-disasters, bad luck, and Nazar moments to share and laugh together with the community.",
 };
 
 export default function RootLayout({

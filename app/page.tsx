@@ -23,7 +23,7 @@ export default function Home() {
             <Ghost size={28} className="text-brutalist-black" strokeWidth={2.5} />
             <span className="font-mono font-black text-2xl uppercase tracking-tighter">Jinx</span>
             <span className="bg-brutalist-black text-brutalist-white px-2 py-0.5 font-mono font-black text-lg uppercase rotate-[-3deg] shadow-brutalist-sm">
-              Notes
+              ly
             </span>
           </div>
 
@@ -244,7 +244,7 @@ export default function Home() {
               ⚡ FEATURES
             </span>
             <h2 className="font-mono font-black text-3xl sm:text-5xl uppercase tracking-tight mt-6">
-              WHAT'S INSIDE JINXNOTES?
+              WHAT'S INSIDE JINXLY?
             </h2>
             <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-4 leading-relaxed">
               Your ultimate coping tool. Turn every embarrassing, clumsy moment into collective laughter.
@@ -515,7 +515,7 @@ export default function Home() {
               <Ghost size={24} className="text-brutalist-white" strokeWidth={2.5} />
               <span className="font-mono font-black text-xl uppercase tracking-tighter text-brutalist-white">Jinx</span>
               <span className="bg-brutalist-white text-brutalist-black px-2 py-0.5 font-mono font-black text-base uppercase rotate-[-3deg]">
-                Notes
+                ly
               </span>
             </div>
             <p className="text-[10px] font-bold text-zinc-500 text-center md:text-left mt-1">
