@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
               By creating an account or using Jinxly, you acknowledge that you have read, understood, and consent to the data practices described in this Policy. If you do not agree with any part of this Policy, you must discontinue use of the Service immediately.
             </p>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              For data protection inquiries, please contact us at: <strong>privacy@jinxly.app</strong>
+              For data protection inquiries, please contact us at: <strong>info@jinxly.app</strong>
             </p>
           </section>
 
@@ -153,7 +153,7 @@ export default function PrivacyPolicy() {
               6. CHILDREN&apos;S PRIVACY
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              Jinxly is not directed at or intended for children under the age of 13. We do not knowingly collect personal data from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <strong>privacy@jinxly.app</strong>. We will take prompt steps to delete that information from our systems.
+              Jinxly is not directed at or intended for children under the age of 13. We do not knowingly collect personal data from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <strong>info@jinxly.app</strong>. We will take prompt steps to delete that information from our systems.
             </p>
           </section>
 
@@ -169,7 +169,7 @@ export default function PrivacyPolicy() {
               <li><strong>Right to Rectification:</strong> You may correct or update inaccurate profile information directly via the Edit Profile screen in the app at any time</li>
               <li><strong>Right to Erasure (&ldquo;Right to be Forgotten&rdquo;):</strong> You may permanently delete your account and all associated data through the Settings &rsaquo; Delete Account option within the app, or via our <a href="/delete-account" className="text-brutalist-red hover:underline font-black">online account deletion portal</a></li>
               <li><strong>Right to Restrict Processing:</strong> You may make your public Jinxes private at any time, removing them from public view without permanent deletion</li>
-              <li><strong>Right to Data Portability:</strong> Upon written request to <strong>privacy@jinxly.app</strong>, we will provide an export of your personal data in a machine-readable format within 30 days</li>
+              <li><strong>Right to Data Portability:</strong> Upon written request to <strong>info@jinxly.app</strong>, we will provide an export of your personal data in a machine-readable format within 30 days</li>
               <li><strong>Right to Object:</strong> You may object to certain processing of your data by contacting us. We will assess and respond within 30 days</li>
               <li><strong>Notification Preferences:</strong> You may manage push notification categories (reactions, comments, follows, badges) within the app Settings &rsaquo; Alerts Setup screen, or disable all notifications via your device&apos;s system settings</li>
               <li><strong>Location Permissions:</strong> You may revoke GPS permission at any time via your device&apos;s privacy settings. Revoking permission does not affect previously submitted location data; contact us to remove existing location records</li>
@@ -202,7 +202,7 @@ export default function PrivacyPolicy() {
               For any questions, requests, or concerns regarding this Privacy Policy or our data handling practices, please contact us through any of the following channels:
             </p>
             <ul className="list-disc list-inside space-y-2 font-sans font-bold text-sm text-zinc-700">
-              <li><strong>Email:</strong> privacy@jinxly.app</li>
+              <li><strong>Email:</strong> info@jinxly.app</li>
               <li><strong>Support Portal:</strong> <a href="/support" className="text-brutalist-teal hover:underline font-black">jinxly.app/support</a></li>
               <li><strong>Company:</strong> Eraslan Medya</li>
               <li><strong>Website:</strong> jinxly.app</li>

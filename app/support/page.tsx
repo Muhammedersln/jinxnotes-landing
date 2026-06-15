@@ -196,7 +196,7 @@ export default function SupportPage() {
                 If you prefer not to use the form, you can contact us directly via the support email address below:
               </p>
               <div className="bg-brutalist-black text-brutalist-yellow border-2 border-brutalist-black p-3 text-center font-mono font-black text-sm select-all">
-                support@eraslanmedya.com
+                info@jinxly.app
               </div>
             </BrutalistCard>
           </div>

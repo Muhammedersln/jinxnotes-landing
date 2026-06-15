@@ -64,7 +64,7 @@ export default function TermsOfService() {
               <strong>2.1 Age Requirement:</strong> You must be at least 13 years of age, or the minimum legal age to access digital social media services in your jurisdiction (whichever is higher), to create a Jinxly account. By creating an account, you represent and warrant that you meet this age requirement. Users between 13 and 18 years of age represent that their parent or legal guardian has reviewed and consented to these Terms.
             </p>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              <strong>2.2 Account Security:</strong> You are solely and entirely responsible for maintaining the confidentiality of your account credentials. You agree to immediately notify us at <strong>support@jinxly.app</strong> upon becoming aware of any unauthorized access to your account. We will not be liable for any losses arising from your failure to safeguard your credentials.
+              <strong>2.2 Account Security:</strong> You are solely and entirely responsible for maintaining the confidentiality of your account credentials. You agree to immediately notify us at <strong>info@jinxly.app</strong> upon becoming aware of any unauthorized access to your account. We will not be liable for any losses arising from your failure to safeguard your credentials.
             </p>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
               <strong>2.3 Account Accuracy:</strong> You agree to provide truthful, accurate, and complete information during registration and to keep your profile current. You may not create an account using a false identity or impersonate any person or entity.
@@ -176,7 +176,7 @@ export default function TermsOfService() {
               9. GOVERNING LAW & DISPUTE RESOLUTION
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              These Terms are governed by the laws of the Republic of Turkey. Any disputes shall be subject to the exclusive jurisdiction of the courts of Istanbul, Turkey. Before initiating formal proceedings, both parties agree to attempt good-faith informal resolution by contacting <strong>legal@jinxly.app</strong> and allowing 30 days for resolution efforts.
+              These Terms are governed by the laws of the Republic of Turkey. Any disputes shall be subject to the exclusive jurisdiction of the courts of Istanbul, Turkey. Before initiating formal proceedings, both parties agree to attempt good-faith informal resolution by contacting <strong>info@jinxly.app</strong> and allowing 30 days for resolution efforts.
             </p>
           </section>
 
@@ -194,7 +194,7 @@ export default function TermsOfService() {
               11. CONTACT
             </h2>
             <ul className="list-disc list-inside space-y-2 font-sans font-bold text-sm text-zinc-700">
-              <li><strong>Legal Inquiries:</strong> legal@jinxly.app</li>
+              <li><strong>Legal Inquiries:</strong> info@jinxly.app</li>
               <li><strong>General Support:</strong> <a href="/support" className="text-brutalist-teal hover:underline font-black">jinxly.app/support</a></li>
               <li><strong>Company:</strong> Eraslan Medya</li>
             </ul>
