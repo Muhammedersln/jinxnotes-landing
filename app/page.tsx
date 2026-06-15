@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { Ghost, Download, Star, MapPin, Award, Smartphone, ArrowRight, Shield, Heart, Zap, Sparkles, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { Ghost, Download, Star, MapPin, Award, Smartphone, ArrowRight, Shield, Heart, Zap, Sparkles, MessageSquare, Menu, X } from 'lucide-react';
 import { BrutalistButton } from './components/ui/BrutalistButton';
 import { BrutalistCard } from './components/ui/BrutalistCard';
 import { InteractiveJinxCard } from './components/features/InteractiveJinxCard';
@@ -9,6 +9,8 @@ import { InteractiveOracle } from './components/features/InteractiveOracle';
 import { InteractiveMiseryMeter } from './components/features/InteractiveMiseryMeter';
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const handleScrollToPlayground = () => {
     document.getElementById('playground')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -17,7 +19,7 @@ export default function Home() {
     <div className="min-h-screen bg-brutalist-bg text-brutalist-black font-sans selection:bg-brutalist-yellow selection:text-brutalist-black">
       
       {/* HEADER / NAVBAR */}
-      <header className="sticky top-0 z-50 bg-brutalist-white border-b-4 border-brutalist-black px-6 py-4">
+      <header className="sticky top-0 z-50 bg-brutalist-white border-b-4 border-brutalist-black px-4 sm:px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Ghost size={28} className="text-brutalist-black" strokeWidth={2.5} />
@@ -35,26 +37,116 @@ export default function Home() {
             <a href="#download" className="hover:underline hover:text-brutalist-purple transition-colors">Download</a>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <BrutalistButton 
-              onClick={handleScrollToPlayground} 
-              variant="teal" 
-              size="sm" 
-              className="hidden sm:inline-flex"
-            >
-              Test Live ➔
-            </BrutalistButton>
-            <a href="#download">
-              <BrutalistButton variant="primary" size="sm">
-                DOWNLOAD <Download size={14} className="ml-1.5 inline" strokeWidth={3} />
+          <div className="flex items-center gap-2.5">
+            {/* Desktop Action Buttons */}
+            <div className="hidden md:flex items-center gap-3">
+              <BrutalistButton 
+                onClick={handleScrollToPlayground} 
+                variant="teal" 
+                size="sm" 
+              >
+                Test Live ➔
               </BrutalistButton>
-            </a>
+              <a href="#download">
+                <BrutalistButton variant="primary" size="sm">
+                  DOWNLOAD <Download size={14} className="ml-1.5 inline" strokeWidth={3} />
+                </BrutalistButton>
+              </a>
+            </div>
+
+            {/* Mobile/Tablet Quick Download Action */}
+            <div className="flex md:hidden items-center">
+              {/* Tablet/Medium Screen Download button with text */}
+              <span className="hidden sm:inline-block">
+                <a href="#download">
+                  <BrutalistButton variant="primary" size="sm">
+                    DOWNLOAD <Download size={14} className="ml-1.5 inline" strokeWidth={3} />
+                  </BrutalistButton>
+                </a>
+              </span>
+              
+              {/* Mobile Screen Download button (compact icon button aligned with Menu) */}
+              <span className="inline-block sm:hidden">
+                <a 
+                  href="#download" 
+                  className="inline-flex items-center justify-center p-2.5 bg-brutalist-black text-brutalist-white border-4 border-brutalist-black shadow-brutalist-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+                  title="Download"
+                >
+                  <Download size={16} strokeWidth={3} />
+                </a>
+              </span>
+            </div>
+
+            {/* Mobile Hamburger toggle */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="flex md:hidden items-center justify-center p-2.5 border-4 border-brutalist-black bg-brutalist-yellow text-brutalist-black shadow-brutalist-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X size={16} strokeWidth={3} /> : <Menu size={16} strokeWidth={3} />}
+            </button>
           </div>
         </div>
       </header>
 
+      {/* MOBILE MENU PANEL */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed top-[76px] left-4 right-4 z-40 bg-brutalist-white border-4 border-brutalist-black p-6 shadow-brutalist-xl animate-in fade-in slide-in-from-top-4 duration-200">
+          <nav className="flex flex-col gap-4 font-mono font-black text-sm uppercase">
+            <a 
+              href="#how-it-works" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              ⚙️ How It Works
+            </a>
+            <a 
+              href="#features" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-red hover:text-brutalist-white shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              ⚡ Features
+            </a>
+            <a 
+              href="#playground" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              🎮 Experience
+            </a>
+            <a 
+              href="#screenshots" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-orange shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              📸 Screenshots
+            </a>
+            <a 
+              href="#download" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-purple hover:text-brutalist-white shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              📥 Download App
+            </a>
+            
+            <div className="pt-4 border-t-2 border-dashed border-zinc-300 flex flex-col gap-3">
+              <BrutalistButton 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleScrollToPlayground();
+                }} 
+                variant="teal" 
+                className="w-full text-xs"
+              >
+                Test Live Simulator ➔
+              </BrutalistButton>
+            </div>
+          </nav>
+        </div>
+      )}
+
       {/* HERO SECTION */}
-      <section className="relative pt-16 pb-20 px-6 overflow-hidden border-b-4 border-brutalist-black">
+      <section className="relative pt-8 pb-12 px-4 sm:pt-16 sm:pb-20 sm:px-6 overflow-hidden border-b-4 border-brutalist-black">
         <div className="absolute top-10 right-[-10%] w-72 h-72 bg-brutalist-purple rounded-full opacity-25 blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-10 left-[-10%] w-80 h-80 bg-brutalist-yellow rounded-full opacity-20 blur-3xl pointer-events-none"></div>
 
@@ -78,23 +170,32 @@ export default function Home() {
               <strong className="text-brutalist-black"> Jinxly</strong> is a Neo-Brutalist daily journal & social feed where you can document your everyday misfortunes, awkward clumsy moments, and bad luck, and laugh them off with a community that relates.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-2">
-              <BrutalistButton onClick={handleScrollToPlayground} variant="yellow" size="lg" rotate="rotate-[-1deg]">
+            <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
+              <BrutalistButton 
+                onClick={handleScrollToPlayground} 
+                variant="yellow" 
+                className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
+                rotate="rotate-0 md:rotate-[-1deg]"
+              >
                 Test Live Simulator
               </BrutalistButton>
-              <a href="#download">
-                <BrutalistButton variant="white" size="lg" rotate="rotate-[1deg]">
+              <a href="#download" className="w-full sm:w-auto">
+                <BrutalistButton 
+                  variant="white" 
+                  className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
+                  rotate="rotate-0 md:rotate-[1deg]"
+                >
                   Get Jinxly
                 </BrutalistButton>
               </a>
             </div>
 
             <div className="flex flex-wrap items-center gap-6 mt-6 pt-6 border-t-2 border-dashed border-zinc-400 w-full">
-              <div className="flex items-center gap-1 font-mono font-black text-sm uppercase">
+              <div className="flex items-center gap-1 font-mono font-black text-xs sm:text-sm uppercase">
                 <Star size={16} className="text-brutalist-yellow fill-brutalist-yellow" strokeWidth={2.5} />
                 <span>4.9/5 APP STORE RATING</span>
               </div>
-              <div className="flex items-center gap-1.5 font-mono font-black text-sm uppercase">
+              <div className="flex items-center gap-1.5 font-mono font-black text-xs sm:text-sm uppercase">
                 <Heart size={16} className="text-brutalist-red fill-brutalist-red animate-pulse" />
                 <span>100K+ UNLUCKY HUMANS</span>
               </div>
@@ -102,13 +203,13 @@ export default function Home() {
           </div>
 
           {/* Right Column Layout Cards (Visual representation of app using generated mockup) */}
-          <div className="lg:col-span-5 flex justify-center items-center relative py-8 lg:py-0">
+          <div className="lg:col-span-5 flex justify-center items-center relative py-4 lg:py-0">
             <div className="relative w-full max-w-sm">
               {/* Back Card Decoration */}
               <div className="absolute inset-0 bg-brutalist-black border-4 border-brutalist-black translate-x-[8px] translate-y-[8px] rotate-[2deg] rounded-3xl" />
               
               {/* Generated smartphone mockup container */}
-              <div className="relative border-4 border-brutalist-black bg-brutalist-white rounded-3xl overflow-hidden shadow-brutalist-xl rotate-[-2deg] transition-all hover:rotate-0 duration-300">
+              <div className="relative border-4 border-brutalist-black bg-brutalist-white rounded-3xl overflow-hidden shadow-brutalist-xl rotate-0 md:rotate-[-2deg] transition-all hover:rotate-0 duration-300">
                 <img 
                   src="/mockup.png" 
                   alt="Jinxly app preview" 
@@ -121,9 +222,9 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS SECTION */}
-      <section id="how-it-works" className="py-20 px-6 bg-brutalist-white border-b-4 border-brutalist-black">
+      <section id="how-it-works" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-white border-b-4 border-brutalist-black">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <span className="bg-brutalist-teal text-brutalist-black font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[-1deg] inline-block shadow-brutalist-sm">
               ⚙️ THE SYSTEM
             </span>
@@ -139,7 +240,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             
             {/* Step 1 */}
-            <BrutalistCard variant="white" shadowSize="md" className="p-6 relative flex flex-col justify-between" rotate="rotate-[-1deg]">
+            <BrutalistCard variant="white" shadowSize="md" className="p-5 sm:p-6 relative flex flex-col justify-between" rotate="rotate-0 md:rotate-[-1deg]">
               <div>
                 <span className="absolute -top-6 -left-3 bg-brutalist-red text-brutalist-black border-4 border-brutalist-black font-mono font-black text-2xl w-12 h-12 flex items-center justify-center shadow-brutalist-sm rotate-[-8deg]">
                   1
@@ -155,7 +256,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Step 2 */}
-            <BrutalistCard variant="white" shadowSize="md" className="p-6 relative flex flex-col justify-between" rotate="rotate-[2deg]">
+            <BrutalistCard variant="white" shadowSize="md" className="p-5 sm:p-6 relative flex flex-col justify-between" rotate="rotate-0 md:rotate-[2deg]">
               <div>
                 <span className="absolute -top-6 -left-3 bg-brutalist-yellow text-brutalist-black border-4 border-brutalist-black font-mono font-black text-2xl w-12 h-12 flex items-center justify-center shadow-brutalist-sm rotate-[5deg]">
                   2
@@ -171,7 +272,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Step 3 */}
-            <BrutalistCard variant="white" shadowSize="md" className="p-6 relative flex flex-col justify-between" rotate="rotate-[-2deg]">
+            <BrutalistCard variant="white" shadowSize="md" className="p-5 sm:p-6 relative flex flex-col justify-between" rotate="rotate-0 md:rotate-[-2deg]">
               <div>
                 <span className="absolute -top-6 -left-3 bg-brutalist-teal text-brutalist-black border-4 border-brutalist-black font-mono font-black text-2xl w-12 h-12 flex items-center justify-center shadow-brutalist-sm rotate-[10deg]">
                   3
@@ -191,9 +292,9 @@ export default function Home() {
       </section>
 
       {/* PLAYGROUND SECTION (INTERACTIVE EXPERIENCE) */}
-      <section id="playground" className="py-20 px-6 bg-brutalist-bg border-b-4 border-brutalist-black">
+      <section id="playground" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-bg border-b-4 border-brutalist-black">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <span className="bg-brutalist-purple text-brutalist-white font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[2deg] inline-block shadow-brutalist-sm">
               🎮 LIVE PLAYGROUND
             </span>
@@ -237,9 +338,9 @@ export default function Home() {
       </section>
 
       {/* CORE FEATURES SHOWCASE */}
-      <section id="features" className="py-20 px-6 bg-brutalist-white border-b-4 border-brutalist-black">
+      <section id="features" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-white border-b-4 border-brutalist-black">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <span className="bg-brutalist-red text-brutalist-white font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[-1deg] inline-block shadow-brutalist-sm">
               ⚡ FEATURES
             </span>
@@ -255,7 +356,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Feature 1 */}
-            <BrutalistCard variant="white" shadowSize="md" hoverEffect={true} className="p-6">
+            <BrutalistCard variant="white" shadowSize="md" hoverEffect={true} className="p-5 sm:p-6">
               <div className="w-12 h-12 bg-brutalist-teal border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm">
                 🔒
               </div>
@@ -266,7 +367,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Feature 2 */}
-            <BrutalistCard variant="yellow" shadowSize="md" hoverEffect={true} className="p-6 rotate-1">
+            <BrutalistCard variant="yellow" shadowSize="md" hoverEffect={true} className="p-5 sm:p-6" rotate="rotate-0 md:rotate-1">
               <div className="w-12 h-12 bg-brutalist-white border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm">
                 🌐
               </div>
@@ -277,7 +378,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Feature 3 */}
-            <BrutalistCard variant="purple" shadowSize="md" hoverEffect={true} className="p-6 -rotate-1 text-brutalist-white">
+            <BrutalistCard variant="purple" shadowSize="md" hoverEffect={true} className="p-5 sm:p-6 text-brutalist-white" rotate="rotate-0 md:-rotate-1">
               <div className="w-12 h-12 bg-brutalist-yellow border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm text-brutalist-black">
                 🔮
               </div>
@@ -288,7 +389,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Feature 4 */}
-            <BrutalistCard variant="teal" shadowSize="md" hoverEffect={true} className="p-6">
+            <BrutalistCard variant="teal" shadowSize="md" hoverEffect={true} className="p-5 sm:p-6">
               <div className="w-12 h-12 bg-brutalist-red border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm text-brutalist-black">
                 🗺️
               </div>
@@ -299,7 +400,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Feature 5 */}
-            <BrutalistCard variant="red" shadowSize="md" hoverEffect={true} className="p-6 rotate-1">
+            <BrutalistCard variant="red" shadowSize="md" hoverEffect={true} className="p-5 sm:p-6" rotate="rotate-0 md:rotate-1">
               <div className="w-12 h-12 bg-brutalist-white border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm text-brutalist-black">
                 🏆
               </div>
@@ -310,7 +411,7 @@ export default function Home() {
             </BrutalistCard>
 
             {/* Feature 6 */}
-            <BrutalistCard variant="white" shadowSize="md" hoverEffect={true} className="p-6">
+            <BrutalistCard variant="white" shadowSize="md" hoverEffect={true} className="p-5 sm:p-6">
               <div className="w-12 h-12 bg-brutalist-purple border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm text-brutalist-white">
                 🎖️
               </div>
@@ -325,9 +426,9 @@ export default function Home() {
       </section>
 
       {/* SCREENSHOTS / PREVIEW GALLERY SECTION */}
-      <section id="screenshots" className="py-20 px-6 bg-brutalist-bg border-b-4 border-brutalist-black">
+      <section id="screenshots" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-bg border-b-4 border-brutalist-black">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <span className="bg-brutalist-orange text-brutalist-black font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[1deg] inline-block shadow-brutalist-sm">
               📸 PREVIEW GALLERY
             </span>
@@ -339,15 +440,15 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Grid of mockup frames. User can swap images here later */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Grid of mockup frames. Horizontal carousel on mobile, grid on desktop */}
+          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-thin">
             
             {/* Screen 1 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
               <BrutalistCard 
                 variant="yellow" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-[-1deg] hover:rotate-0 transition-transform duration-300"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[-1deg] hover:rotate-0 transition-transform duration-300"
               >
                 {/* Mock Phone Status Bar */}
                 <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-brutalist-black pb-2 text-zinc-800">
@@ -373,11 +474,11 @@ export default function Home() {
             </div>
 
             {/* Screen 2 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
               <BrutalistCard 
                 variant="teal" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-[2deg] hover:rotate-0 transition-transform duration-300"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[2deg] hover:rotate-0 transition-transform duration-300"
               >
                 {/* Mock Status Bar */}
                 <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-brutalist-black pb-2 text-zinc-800">
@@ -402,11 +503,11 @@ export default function Home() {
             </div>
 
             {/* Screen 3 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
               <BrutalistCard 
                 variant="purple" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-[-2deg] hover:rotate-0 transition-transform duration-300 text-brutalist-white"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[-2deg] hover:rotate-0 transition-transform duration-300 text-brutalist-white"
               >
                 {/* Mock Status Bar */}
                 <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-zinc-700 pb-2 text-zinc-300">
@@ -431,11 +532,11 @@ export default function Home() {
             </div>
 
             {/* Screen 4 */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
               <BrutalistCard 
                 variant="red" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-[1deg] hover:rotate-0 transition-transform duration-300"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[1deg] hover:rotate-0 transition-transform duration-300"
               >
                 {/* Mock Status Bar */}
                 <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-brutalist-black pb-2 text-zinc-800">
@@ -464,13 +565,13 @@ export default function Home() {
       </section>
 
       {/* DOWNLOAD CTA SECTION */}
-      <section id="download" className="py-20 px-6 bg-brutalist-yellow border-b-4 border-brutalist-black relative overflow-hidden">
+      <section id="download" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-yellow border-b-4 border-brutalist-black relative overflow-hidden">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-brutalist-red rounded-full opacity-30 blur-3xl pointer-events-none"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <Ghost size={64} className="mx-auto text-brutalist-black mb-6 animate-bounce" strokeWidth={2.5} />
           
-          <h2 className="font-mono font-black text-4xl sm:text-6xl uppercase tracking-tight mb-6 leading-none">
+          <h2 className="font-mono font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight mb-6 leading-none">
             READY TO LAUGH AT <br />
             YOUR BAD LUCK?
           </h2>
@@ -479,10 +580,14 @@ export default function Home() {
             Download Jinxly for iOS and Android today, start your bad luck streak, and laugh it off with the community.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full sm:w-auto">
             {/* App Store Button Mock */}
             <a href="https://apple.co/3..." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <BrutalistButton variant="primary" size="lg" className="w-full flex items-center gap-3" rotate="rotate-[-1deg]">
+              <BrutalistButton 
+                variant="primary" 
+                className="w-full flex items-center justify-center gap-3 py-3 px-5 sm:py-4 sm:px-8" 
+                rotate="rotate-0 md:rotate-[-1deg]"
+              >
                 <Smartphone size={24} strokeWidth={2.5} />
                 <div className="text-left font-mono font-black leading-tight">
                   <span className="text-[10px] block font-bold">DOWNLOAD ON THE</span>
@@ -493,7 +598,11 @@ export default function Home() {
 
             {/* Google Play Store Button Mock */}
             <a href="https://play.google.com/..." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <BrutalistButton variant="white" size="lg" className="w-full flex items-center gap-3 border-4 border-brutalist-black" rotate="rotate-[2deg]">
+              <BrutalistButton 
+                variant="white" 
+                className="w-full flex items-center justify-center gap-3 py-3 px-5 sm:py-4 sm:px-8 border-4 border-brutalist-black" 
+                rotate="rotate-0 md:rotate-[2deg]"
+              >
                 <Smartphone size={24} strokeWidth={2.5} />
                 <div className="text-left font-mono font-black leading-tight text-brutalist-black">
                   <span className="text-[10px] block font-bold">GET IT ON</span>
@@ -506,7 +615,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-brutalist-black text-brutalist-white px-6 py-12 font-mono text-xs uppercase">
+      <footer className="bg-brutalist-black text-brutalist-white px-4 py-8 sm:px-6 sm:py-12 font-mono text-xs uppercase">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-b-2 border-zinc-800 pb-8 mb-8">
           
           {/* Logo info */}
@@ -534,7 +643,7 @@ export default function Home() {
 
         </div>
 
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-zinc-600 text-[10px]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-zinc-600 text-[10px] text-center sm:text-left">
           <div>
             MADE WITH 🖤 AND BAD LUCK BY ERASLAN MEDYA
           </div>
@@ -543,7 +652,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
     </div>
   );
 }

@@ -105,7 +105,7 @@ export const InteractiveOracle: React.FC = () => {
   };
 
   return (
-    <BrutalistCard variant="purple" shadowSize="lg" className="p-6 max-w-md w-full" rotate="-rotate-1">
+    <BrutalistCard variant="purple" shadowSize="lg" className="p-4 sm:p-6 max-w-md w-full" rotate="rotate-0 md:-rotate-1">
       <div className="flex items-center gap-3 mb-4 border-b-2 border-brutalist-black pb-3">
         <div className="bg-brutalist-yellow p-1.5 border-2 border-brutalist-black shadow-brutalist-sm">
           <Sparkles size={20} className="text-brutalist-black" />

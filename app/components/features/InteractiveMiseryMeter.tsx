@@ -70,8 +70,8 @@ export const InteractiveMiseryMeter: React.FC = () => {
       <BrutalistCard
         variant="white"
         shadowSize="lg"
-        className={`p-6 transition-all duration-300 ${active.bgColorClass}`}
-        rotate="rotate-1"
+        className={`p-4 sm:p-6 transition-all duration-300 ${active.bgColorClass}`}
+        rotate="rotate-0 md:rotate-1"
       >
         <div className="flex justify-between items-start">
           <div className="flex-1 mr-4">
