@@ -1,12 +1,49 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Ghost, Download, Star, MapPin, Award, Smartphone, ArrowRight, Shield, Heart, Zap, Sparkles, MessageSquare, Menu, X, LifeBuoy } from 'lucide-react';
+import { Ghost, Download, Star, MapPin, Award, Smartphone, ArrowRight, Shield, Heart, Zap, Sparkles, MessageSquare, Menu, X, LifeBuoy, CheckCircle2 } from 'lucide-react';
 import { BrutalistButton } from './components/ui/BrutalistButton';
 import { BrutalistCard } from './components/ui/BrutalistCard';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleSmoothScroll = (targetId: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!targetId.startsWith('#')) return;
+    event.preventDefault();
+    setMobileMenuOpen(false);
+
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const headerOffset = 92;
+    const targetY = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    if (prefersReducedMotion) {
+      window.scrollTo(0, targetY);
+      window.history.pushState(null, '', targetId);
+      return;
+    }
+
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const duration = Math.min(950, Math.max(480, Math.abs(distance) * 0.42));
+    const startTime = performance.now();
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeOutCubic(progress));
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        window.history.pushState(null, '', targetId);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
 
   return (
     <div className="min-h-screen bg-brutalist-bg text-brutalist-black font-sans selection:bg-brutalist-yellow selection:text-brutalist-black">
@@ -23,18 +60,19 @@ export default function Home() {
           </div>
 
           <nav className="hidden md:flex items-center gap-5 font-mono font-bold uppercase text-xs">
-            <a href="#how-it-works" className="hover:underline hover:text-brutalist-teal transition-colors">How It Works</a>
-            <a href="#safety" className="hover:underline hover:text-brutalist-purple transition-colors">Safety</a>
-            <a href="#features" className="hover:underline hover:text-brutalist-red transition-colors">Features</a>
-            <a href="#screenshots" className="hover:underline hover:text-brutalist-orange transition-colors">Screenshots</a>
+            <a href="#how-it-works" onClick={handleSmoothScroll('#how-it-works')} className="inline-block hover:underline hover:text-brutalist-teal hover:-translate-y-0.5 transition-all duration-200">How It Works</a>
+            <a href="#safety" onClick={handleSmoothScroll('#safety')} className="inline-block hover:underline hover:text-brutalist-purple hover:-translate-y-0.5 transition-all duration-200">Safety</a>
+            <a href="#features" onClick={handleSmoothScroll('#features')} className="inline-block hover:underline hover:text-brutalist-red hover:-translate-y-0.5 transition-all duration-200">Features</a>
+            <a href="#screenshots" onClick={handleSmoothScroll('#screenshots')} className="inline-block hover:underline hover:text-brutalist-orange hover:-translate-y-0.5 transition-all duration-200">Screenshots</a>
+            <a href="#pricing" onClick={handleSmoothScroll('#pricing')} className="inline-block hover:underline hover:text-brutalist-teal hover:-translate-y-0.5 transition-all duration-200">Pricing</a>
             <a href="/support" className="hover:underline hover:text-brutalist-red transition-colors">Support</a>
-            <a href="#download" className="hover:underline hover:text-brutalist-purple transition-colors">Download</a>
+            <a href="#download" onClick={handleSmoothScroll('#download')} className="inline-block hover:underline hover:text-brutalist-purple hover:-translate-y-0.5 transition-all duration-200">Download</a>
           </nav>
 
           <div className="flex items-center gap-2.5">
             {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center gap-3">
-              <a href="#download">
+              <a href="#download" onClick={handleSmoothScroll('#download')}>
                 <BrutalistButton variant="primary" size="sm">
                   DOWNLOAD <Download size={14} className="ml-1.5 inline" strokeWidth={3} />
                 </BrutalistButton>
@@ -45,7 +83,7 @@ export default function Home() {
             <div className="flex md:hidden items-center">
               {/* Tablet/Medium Screen Download button with text */}
               <span className="hidden sm:inline-block">
-                <a href="#download">
+                <a href="#download" onClick={handleSmoothScroll('#download')}>
                   <BrutalistButton variant="primary" size="sm">
                     DOWNLOAD <Download size={14} className="ml-1.5 inline" strokeWidth={3} />
                   </BrutalistButton>
@@ -56,6 +94,7 @@ export default function Home() {
               <span className="inline-block sm:hidden">
                 <a 
                   href="#download" 
+                  onClick={handleSmoothScroll('#download')}
                   className="inline-flex items-center justify-center p-2.5 bg-brutalist-black text-brutalist-white border-4 border-brutalist-black shadow-brutalist-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
                   title="Download"
                 >
@@ -82,35 +121,42 @@ export default function Home() {
           <nav className="flex flex-col gap-4 font-mono font-black text-sm uppercase">
             <a 
               href="#how-it-works" 
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleSmoothScroll('#how-it-works')}
               className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               ⚙️ How It Works
             </a>
             <a 
               href="#safety" 
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleSmoothScroll('#safety')}
               className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               🛡️ Safety
             </a>
             <a 
               href="#features" 
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleSmoothScroll('#features')}
               className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-red hover:text-brutalist-white shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               ⚡ Features
             </a>
             <a 
               href="#screenshots" 
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleSmoothScroll('#screenshots')}
               className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-orange shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               📸 Screenshots
             </a>
             <a 
+              href="#pricing" 
+              onClick={handleSmoothScroll('#pricing')}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              💳 Pricing
+            </a>
+            <a 
               href="#download" 
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleSmoothScroll('#download')}
               className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-purple hover:text-brutalist-white shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               📥 Download App
@@ -152,7 +198,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
-              <a href="#download" className="w-full sm:w-auto">
+              <a href="#download" onClick={handleSmoothScroll('#download')} className="w-full sm:w-auto">
                 <BrutalistButton 
                   variant="yellow" 
                   className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
@@ -161,7 +207,7 @@ export default function Home() {
                   Get Jinxly
                 </BrutalistButton>
               </a>
-              <a href="#features" className="w-full sm:w-auto">
+              <a href="#features" onClick={handleSmoothScroll('#features')} className="w-full sm:w-auto">
                 <BrutalistButton 
                   variant="white" 
                   className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
@@ -287,7 +333,7 @@ export default function Home() {
               <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-5 leading-relaxed">
                 Jinxly is built for funny honesty, not oversharing anxiety. Keep private entries private, post public stories when you want reactions, and stay in control of what the community sees.
               </p>
-              <a href="#features" className="inline-flex mt-7">
+              <a href="#features" onClick={handleSmoothScroll('#features')} className="inline-flex mt-7">
                 <BrutalistButton variant="teal" className="flex items-center gap-2">
                   Explore Controls <ArrowRight size={18} strokeWidth={3} />
                 </BrutalistButton>
@@ -557,6 +603,121 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* PRICING SECTION */}
+      <section id="pricing" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-white border-b-4 border-brutalist-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span className="bg-brutalist-purple text-brutalist-white font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[-1deg] inline-block shadow-brutalist-sm">
+              JINXLY PRO
+            </span>
+            <h2 className="font-mono font-black text-3xl sm:text-5xl uppercase tracking-tight mt-6">
+              MORE CHAOS. FEWER LIMITS.
+            </h2>
+            <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-4 leading-relaxed">
+              Keep the core feed free, then unlock unlimited public logs, AI roasts, profile upgrades, and full Map of Misery access when your bad luck becomes a lifestyle.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <BrutalistCard variant="bg" shadowSize="lg" className="p-5 sm:p-7 flex flex-col" rotate="rotate-0 md:rotate-[-1deg]">
+              <div className="flex items-center justify-between gap-4 border-b-4 border-brutalist-black pb-5 mb-6">
+                <div>
+                  <p className="font-mono font-black text-xs uppercase text-zinc-500 mb-1">Free</p>
+                  <h3 className="font-mono font-black text-3xl uppercase">Starter</h3>
+                </div>
+                <div className="bg-brutalist-white border-4 border-brutalist-black px-3 py-2 font-mono font-black text-xl shadow-brutalist-sm">
+                  $0
+                </div>
+              </div>
+
+              <p className="font-sans font-bold text-sm text-zinc-700 leading-relaxed mb-6">
+                For casual jinxers who want to log the day, join the feed, and keep private disasters unlimited.
+              </p>
+
+              <div className="space-y-3 font-sans font-bold text-sm flex-1">
+                {[
+                  'Unlimited private jinx logs',
+                  '1 public jinx per day',
+                  '160 character public posts',
+                  'Basic feed, comments, and reactions',
+                  'Basic anti-badges and profile access',
+                  'Safety, support, and reporting tools',
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2">
+                    <CheckCircle2 size={18} className="shrink-0 mt-0.5 text-brutalist-teal" strokeWidth={3} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a href="#download" onClick={handleSmoothScroll('#download')} className="mt-8">
+                <BrutalistButton variant="white" className="w-full">
+                  Start Free
+                </BrutalistButton>
+              </a>
+            </BrutalistCard>
+
+            <BrutalistCard variant="yellow" shadowSize="xl" className="p-5 sm:p-7 flex flex-col relative overflow-visible" rotate="rotate-0 md:rotate-[1deg]">
+              <div className="absolute -top-4 right-5 bg-brutalist-red text-brutalist-white border-4 border-brutalist-black px-3 py-1 font-mono font-black text-[10px] uppercase shadow-brutalist-sm rotate-[2deg]">
+                Best Value
+              </div>
+
+              <div className="flex items-center justify-between gap-4 border-b-4 border-brutalist-black pb-5 mb-6">
+                <div>
+                  <p className="font-mono font-black text-xs uppercase text-zinc-700 mb-1">Jinxly PRO</p>
+                  <h3 className="font-mono font-black text-3xl uppercase">Unlimited</h3>
+                </div>
+                <div className="bg-brutalist-black text-brutalist-white border-4 border-brutalist-black px-3 py-2 font-mono font-black text-xl shadow-brutalist-sm text-right">
+                  $2.99
+                  <span className="block text-[10px] text-brutalist-yellow uppercase">/ month</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                <div className="bg-brutalist-white border-4 border-brutalist-black p-4 shadow-brutalist-sm">
+                  <p className="font-mono font-black text-[10px] uppercase text-zinc-500">Monthly</p>
+                  <p className="font-mono font-black text-2xl">$2.99</p>
+                  <p className="font-sans font-bold text-[11px] uppercase text-zinc-600">Cancel anytime</p>
+                </div>
+                <div className="bg-brutalist-teal border-4 border-brutalist-black p-4 shadow-brutalist-sm">
+                  <p className="font-mono font-black text-[10px] uppercase text-zinc-700">Yearly</p>
+                  <p className="font-mono font-black text-2xl">$19.99</p>
+                  <p className="font-sans font-bold text-[11px] uppercase text-zinc-700">About $1.66/mo</p>
+                </div>
+              </div>
+
+              <div className="space-y-3 font-sans font-bold text-sm flex-1">
+                {[
+                  'Unlimited public jinx logs',
+                  'Longer public posts beyond 160 characters',
+                  'Full Map of Misery access',
+                  'Jinxie Oracle roasts and luck insights',
+                  'Custom severity labels',
+                  'View linked social accounts',
+                  'PRO badge, profile themes, and profile links',
+                  'PRO-exclusive anti-badges',
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2">
+                    <CheckCircle2 size={18} className="shrink-0 mt-0.5 text-brutalist-black" strokeWidth={3} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a href="#download" onClick={handleSmoothScroll('#download')} className="mt-8">
+                <BrutalistButton variant="primary" className="w-full">
+                  Get Jinxly PRO <ArrowRight size={18} className="ml-2" strokeWidth={3} />
+                </BrutalistButton>
+              </a>
+            </BrutalistCard>
+          </div>
+
+          <p className="font-sans font-bold text-xs text-zinc-600 text-center max-w-2xl mx-auto mt-8 leading-relaxed">
+            Prices are planned launch pricing for App Store subscriptions. Payment processing will be handled by the app stores; Jinxly never stores your card details.
+          </p>
         </div>
       </section>
 
