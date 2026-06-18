@@ -671,7 +671,6 @@ export default function Home() {
             <a href="/privacy" className="hover:text-brutalist-teal transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-brutalist-yellow transition-colors">Terms of Use</a>
             <a href="/support" className="hover:text-brutalist-red transition-colors">Support & Help</a>
-            <a href="/delete-account" className="hover:text-brutalist-purple transition-colors">Delete Account</a>
           </div>
 
         </div>

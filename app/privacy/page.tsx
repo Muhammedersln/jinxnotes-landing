@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Ghost, Shield, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import { Ghost, ArrowLeft } from 'lucide-react';
 import { BrutalistButton } from '../components/ui/BrutalistButton';
 import { BrutalistCard } from '../components/ui/BrutalistCard';
 
@@ -12,18 +13,18 @@ export default function PrivacyPolicy() {
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-brutalist-white border-b-4 border-brutalist-black px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Ghost size={28} className="text-brutalist-black" strokeWidth={2.5} />
             <span className="font-mono font-black text-2xl uppercase tracking-tighter">Jinx</span>
             <span className="bg-brutalist-black text-brutalist-white px-2 py-0.5 font-mono font-black text-lg uppercase rotate-[-3deg] shadow-brutalist-sm">
               ly
             </span>
-          </a>
-          <a href="/">
+          </Link>
+          <Link href="/">
             <BrutalistButton variant="white" size="sm" className="flex items-center gap-2">
               <ArrowLeft size={14} strokeWidth={3} /> GO BACK
             </BrutalistButton>
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -167,7 +168,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc list-inside space-y-2 font-sans font-bold text-sm text-zinc-700">
               <li><strong>Right of Access:</strong> You may request a copy of all personal data we hold about you at any time</li>
               <li><strong>Right to Rectification:</strong> You may correct or update inaccurate profile information directly via the Edit Profile screen in the app at any time</li>
-              <li><strong>Right to Erasure (&ldquo;Right to be Forgotten&rdquo;):</strong> You may permanently delete your account and all associated data through the Settings &rsaquo; Delete Account option within the app, or via our <a href="/delete-account" className="text-brutalist-red hover:underline font-black">online account deletion portal</a></li>
+              <li><strong>Right to Erasure (&ldquo;Right to be Forgotten&rdquo;):</strong> You may permanently delete your account and all associated data through the Settings &rsaquo; Delete Account option within the app.</li>
               <li><strong>Right to Restrict Processing:</strong> You may make your public Jinxes private at any time, removing them from public view without permanent deletion</li>
               <li><strong>Right to Data Portability:</strong> Upon written request to <strong>info@jinxly.app</strong>, we will provide an export of your personal data in a machine-readable format within 30 days</li>
               <li><strong>Right to Object:</strong> You may object to certain processing of your data by contacting us. We will assess and respond within 30 days</li>
@@ -203,7 +204,7 @@ export default function PrivacyPolicy() {
             </p>
             <ul className="list-disc list-inside space-y-2 font-sans font-bold text-sm text-zinc-700">
               <li><strong>Email:</strong> info@jinxly.app</li>
-              <li><strong>Support Portal:</strong> <a href="/support" className="text-brutalist-teal hover:underline font-black">jinxly.app/support</a></li>
+              <li><strong>Support Portal:</strong> <Link href="/support" className="text-brutalist-teal hover:underline font-black">jinxly.app/support</Link></li>
               <li><strong>Company:</strong> Eraslan Medya</li>
               <li><strong>Website:</strong> jinxly.app</li>
             </ul>

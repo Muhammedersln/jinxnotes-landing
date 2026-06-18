@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Ghost, Scale, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
+import { Ghost, ArrowLeft } from 'lucide-react';
 import { BrutalistButton } from '../components/ui/BrutalistButton';
 import { BrutalistCard } from '../components/ui/BrutalistCard';
 
@@ -12,18 +13,18 @@ export default function TermsOfService() {
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-brutalist-white border-b-4 border-brutalist-black px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Ghost size={28} className="text-brutalist-black" strokeWidth={2.5} />
             <span className="font-mono font-black text-2xl uppercase tracking-tighter">Jinx</span>
             <span className="bg-brutalist-black text-brutalist-white px-2 py-0.5 font-mono font-black text-lg uppercase rotate-[-3deg] shadow-brutalist-sm">
               ly
             </span>
-          </a>
-          <a href="/">
+          </Link>
+          <Link href="/">
             <BrutalistButton variant="white" size="sm" className="flex items-center gap-2">
               <ArrowLeft size={14} strokeWidth={3} /> GO BACK
             </BrutalistButton>
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -52,7 +53,7 @@ export default function TermsOfService() {
               These Terms of Use (&ldquo;Terms&rdquo; or &ldquo;Agreement&rdquo;) constitute a legally binding contract between you (&ldquo;User,&rdquo; &ldquo;you,&rdquo; or &ldquo;your&rdquo;) and <strong>Eraslan Medya</strong> (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), the developer and operator of the <strong>Jinxly</strong> mobile application and website (collectively, the &ldquo;Service&rdquo;).
             </p>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              By downloading, installing, accessing, or using Jinxly in any manner, you represent that you have read, understood, and agree to be bound by these Terms and our <a href="/privacy" className="text-brutalist-teal hover:underline font-black">Privacy Policy</a>, which is incorporated herein by reference. If you do not agree to all of these Terms, you must immediately cease using the Service and uninstall the application.
+              By downloading, installing, accessing, or using Jinxly in any manner, you represent that you have read, understood, and agree to be bound by these Terms and our <Link href="/privacy" className="text-brutalist-teal hover:underline font-black">Privacy Policy</Link>, which is incorporated herein by reference. If you do not agree to all of these Terms, you must immediately cease using the Service and uninstall the application.
             </p>
           </section>
 
@@ -164,7 +165,7 @@ export default function TermsOfService() {
               8. ACCOUNT TERMINATION
             </h2>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
-              <strong>By You:</strong> You may delete your account at any time via Settings &rsaquo; Danger Zone &rsaquo; Delete Account in the app, or through our <a href="/delete-account" className="text-brutalist-red hover:underline font-black">online deletion portal</a>. Deletion is permanent — all data is purged within 30 days.
+              <strong>By You:</strong> You may delete your account at any time via Settings &rsaquo; Danger Zone &rsaquo; Delete Account in the app. Deletion is permanent — all data is purged from active systems.
             </p>
             <p className="font-sans font-bold text-sm text-zinc-800 leading-relaxed">
               <strong>By Us:</strong> We may suspend or permanently terminate your account without prior notice if we determine you have violated these Terms, engaged in fraud, or if required by law. Upon termination, your right to use the Service immediately ceases.
@@ -195,7 +196,7 @@ export default function TermsOfService() {
             </h2>
             <ul className="list-disc list-inside space-y-2 font-sans font-bold text-sm text-zinc-700">
               <li><strong>Legal Inquiries:</strong> info@jinxly.app</li>
-              <li><strong>General Support:</strong> <a href="/support" className="text-brutalist-teal hover:underline font-black">jinxly.app/support</a></li>
+              <li><strong>General Support:</strong> <Link href="/support" className="text-brutalist-teal hover:underline font-black">jinxly.app/support</Link></li>
               <li><strong>Company:</strong> Eraslan Medya</li>
             </ul>
           </section>
