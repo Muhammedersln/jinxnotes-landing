@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Ghost, LifeBuoy, ArrowLeft, CheckCircle2, MessageSquare, Send } from 'lucide-react';
+import Link from 'next/link';
+import { Ghost, ArrowLeft, CheckCircle2, Send } from 'lucide-react';
 import { BrutalistButton } from '../components/ui/BrutalistButton';
 import { BrutalistCard } from '../components/ui/BrutalistCard';
 
@@ -13,6 +14,8 @@ export default function SupportPage() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const faqs = [
@@ -34,14 +37,35 @@ export default function SupportPage() {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    setSubmitted(true);
-    setTimeout(() => {
+    setIsSending(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/support', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(result?.error || 'Could not send your message right now.');
+      }
+
+      setSubmitted(true);
       setFormData({ name: '', email: '', subject: 'support', message: '' });
-    }, 100);
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Could not send your message right now.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -50,18 +74,18 @@ export default function SupportPage() {
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-brutalist-white border-b-4 border-brutalist-black px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Ghost size={28} className="text-brutalist-black" strokeWidth={2.5} />
             <span className="font-mono font-black text-2xl uppercase tracking-tighter">Jinx</span>
             <span className="bg-brutalist-black text-brutalist-white px-2 py-0.5 font-mono font-black text-lg uppercase rotate-[-3deg] shadow-brutalist-sm">
               ly
             </span>
-          </a>
-          <a href="/">
+          </Link>
+          <Link href="/">
             <BrutalistButton variant="white" size="sm" className="flex items-center gap-2">
               <ArrowLeft size={14} strokeWidth={3} /> GO BACK
             </BrutalistButton>
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -103,6 +127,12 @@ export default function SupportPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {errorMessage && (
+                    <div className="bg-brutalist-red p-4 border-4 border-brutalist-black shadow-brutalist-sm font-sans font-black text-sm text-brutalist-black">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="font-mono font-black text-xs uppercase text-brutalist-black">Full Name</label>
@@ -154,8 +184,8 @@ export default function SupportPage() {
                     />
                   </div>
 
-                  <BrutalistButton type="submit" variant="primary" className="w-full">
-                    SUBMIT <Send size={14} className="ml-1.5 inline" strokeWidth={3} />
+                  <BrutalistButton type="submit" variant="primary" className="w-full" disabled={isSending}>
+                    {isSending ? 'SENDING...' : 'SUBMIT'} <Send size={14} className="ml-1.5 inline" strokeWidth={3} />
                   </BrutalistButton>
                 </form>
               )}
@@ -195,9 +225,9 @@ export default function SupportPage() {
               <p className="font-sans font-bold text-xs text-zinc-200 leading-relaxed mb-4">
                 If you prefer not to use the form, you can contact us directly via the support email address below:
               </p>
-              <div className="bg-brutalist-black text-brutalist-yellow border-2 border-brutalist-black p-3 text-center font-mono font-black text-sm select-all">
+              <a href="mailto:info@jinxly.app" className="block bg-brutalist-black text-brutalist-yellow border-2 border-brutalist-black p-3 text-center font-mono font-black text-sm select-all hover:bg-zinc-900 transition-colors">
                 info@jinxly.app
-              </div>
+              </a>
             </BrutalistCard>
           </div>
 

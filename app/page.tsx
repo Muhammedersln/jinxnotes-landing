@@ -1,19 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Ghost, Download, Star, MapPin, Award, Smartphone, ArrowRight, Shield, Heart, Zap, Sparkles, MessageSquare, Menu, X } from 'lucide-react';
+import { Ghost, Download, Star, MapPin, Award, Smartphone, ArrowRight, Shield, Heart, Zap, Sparkles, MessageSquare, Menu, X, LifeBuoy } from 'lucide-react';
 import { BrutalistButton } from './components/ui/BrutalistButton';
 import { BrutalistCard } from './components/ui/BrutalistCard';
-import { InteractiveJinxCard } from './components/features/InteractiveJinxCard';
-import { InteractiveOracle } from './components/features/InteractiveOracle';
-import { InteractiveMiseryMeter } from './components/features/InteractiveMiseryMeter';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleScrollToPlayground = () => {
-    document.getElementById('playground')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="min-h-screen bg-brutalist-bg text-brutalist-black font-sans selection:bg-brutalist-yellow selection:text-brutalist-black">
@@ -29,24 +22,18 @@ export default function Home() {
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-6 font-mono font-bold uppercase text-xs">
+          <nav className="hidden md:flex items-center gap-5 font-mono font-bold uppercase text-xs">
             <a href="#how-it-works" className="hover:underline hover:text-brutalist-teal transition-colors">How It Works</a>
+            <a href="#safety" className="hover:underline hover:text-brutalist-purple transition-colors">Safety</a>
             <a href="#features" className="hover:underline hover:text-brutalist-red transition-colors">Features</a>
-            <a href="#playground" className="hover:underline hover:text-brutalist-teal transition-colors font-black">Experience</a>
             <a href="#screenshots" className="hover:underline hover:text-brutalist-orange transition-colors">Screenshots</a>
+            <a href="/support" className="hover:underline hover:text-brutalist-red transition-colors">Support</a>
             <a href="#download" className="hover:underline hover:text-brutalist-purple transition-colors">Download</a>
           </nav>
 
           <div className="flex items-center gap-2.5">
             {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center gap-3">
-              <BrutalistButton 
-                onClick={handleScrollToPlayground} 
-                variant="teal" 
-                size="sm" 
-              >
-                Test Live ➔
-              </BrutalistButton>
               <a href="#download">
                 <BrutalistButton variant="primary" size="sm">
                   DOWNLOAD <Download size={14} className="ml-1.5 inline" strokeWidth={3} />
@@ -101,18 +88,18 @@ export default function Home() {
               ⚙️ How It Works
             </a>
             <a 
+              href="#safety" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              🛡️ Safety
+            </a>
+            <a 
               href="#features" 
               onClick={() => setMobileMenuOpen(false)}
               className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-red hover:text-brutalist-white shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             >
               ⚡ Features
-            </a>
-            <a 
-              href="#playground" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-teal shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
-            >
-              🎮 Experience
             </a>
             <a 
               href="#screenshots" 
@@ -128,19 +115,13 @@ export default function Home() {
             >
               📥 Download App
             </a>
-            
-            <div className="pt-4 border-t-2 border-dashed border-zinc-300 flex flex-col gap-3">
-              <BrutalistButton 
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  handleScrollToPlayground();
-                }} 
-                variant="teal" 
-                className="w-full text-xs"
-              >
-                Test Live Simulator ➔
-              </BrutalistButton>
-            </div>
+            <a 
+              href="/support" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 border-2 border-brutalist-black bg-brutalist-bg hover:bg-brutalist-red hover:text-brutalist-white shadow-brutalist-sm hover:shadow-none hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            >
+              🆘 Support
+            </a>
           </nav>
         </div>
       )}
@@ -171,21 +152,22 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
-              <BrutalistButton 
-                onClick={handleScrollToPlayground} 
-                variant="yellow" 
-                className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
-                rotate="rotate-0 md:rotate-[-1deg]"
-              >
-                Test Live Simulator
-              </BrutalistButton>
               <a href="#download" className="w-full sm:w-auto">
+                <BrutalistButton 
+                  variant="yellow" 
+                  className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
+                  rotate="rotate-0 md:rotate-[-1deg]"
+                >
+                  Get Jinxly
+                </BrutalistButton>
+              </a>
+              <a href="#features" className="w-full sm:w-auto">
                 <BrutalistButton 
                   variant="white" 
                   className="py-3.5 px-6 text-base sm:py-4 sm:px-8 sm:text-xl w-full sm:w-auto" 
                   rotate="rotate-0 md:rotate-[1deg]"
                 >
-                  Get Jinxly
+                  See Features
                 </BrutalistButton>
               </a>
             </div>
@@ -291,48 +273,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLAYGROUND SECTION (INTERACTIVE EXPERIENCE) */}
-      <section id="playground" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-bg border-b-4 border-brutalist-black">
+      {/* SAFETY & CONTROL SECTION */}
+      <section id="safety" className="py-12 px-4 sm:py-20 sm:px-6 bg-brutalist-bg border-b-4 border-brutalist-black">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="bg-brutalist-purple text-brutalist-white font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[2deg] inline-block shadow-brutalist-sm">
-              🎮 LIVE PLAYGROUND
-            </span>
-            <h2 className="font-mono font-black text-3xl sm:text-5xl uppercase tracking-tight mt-6">
-              TEST IT LIVE!
-            </h2>
-            <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-4 leading-relaxed">
-              Interact with the core features of the Jinxly mobile app right here. Change severity meters, request sarcastic AI roasts, or react to live feed posts!
-            </p>
-          </div>
-
-          {/* Playground widgets container */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-            
-            {/* Widget 1: Misery Meter Simulator */}
-            <div className="w-full flex flex-col items-center gap-3">
-              <span className="font-mono font-black text-xs uppercase bg-brutalist-teal text-brutalist-black px-3 py-1 border-2 border-brutalist-black shadow-brutalist-sm">
-                1. MISERY METER (LUCK TRACKER)
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-5">
+              <span className="bg-brutalist-purple text-brutalist-white font-mono font-black text-xs uppercase px-3 py-1.5 border-4 border-brutalist-black rotate-[2deg] inline-block shadow-brutalist-sm">
+                🛡️ YOUR BAD LUCK, YOUR RULES
               </span>
-              <InteractiveMiseryMeter />
+              <h2 className="font-mono font-black text-3xl sm:text-5xl uppercase tracking-tight mt-6 leading-tight">
+                SHARE THE CHAOS WITHOUT LOSING CONTROL
+              </h2>
+              <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-5 leading-relaxed">
+                Jinxly is built for funny honesty, not oversharing anxiety. Keep private entries private, post public stories when you want reactions, and stay in control of what the community sees.
+              </p>
+              <a href="#features" className="inline-flex mt-7">
+                <BrutalistButton variant="teal" className="flex items-center gap-2">
+                  Explore Controls <ArrowRight size={18} strokeWidth={3} />
+                </BrutalistButton>
+              </a>
             </div>
 
-            {/* Widget 2: Reaction Feed Card */}
-            <div className="w-full flex flex-col items-center gap-3">
-              <span className="font-mono font-black text-xs uppercase bg-brutalist-yellow text-brutalist-black px-3 py-1 border-2 border-brutalist-black shadow-brutalist-sm">
-                2. LIVE COMMUNITY CARD
-              </span>
-              <InteractiveJinxCard />
-            </div>
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <BrutalistCard variant="white" shadowSize="md" className="p-5 sm:p-6" rotate="rotate-0 md:rotate-[-1deg]">
+                <div className="w-12 h-12 bg-brutalist-teal border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm">
+                  <Shield size={24} strokeWidth={3} />
+                </div>
+                <h3 className="font-mono font-black text-lg uppercase mb-2">PRIVATE BY DEFAULT</h3>
+                <p className="font-sans font-bold text-sm text-zinc-700 leading-relaxed">
+                  Save awkward moments to your own vault first. Decide later if a story deserves public sympathy or should stay locked away.
+                </p>
+              </BrutalistCard>
 
-            {/* Widget 3: AI Oracle Roast Generator */}
-            <div className="w-full flex flex-col items-center gap-3">
-              <span className="font-mono font-black text-xs uppercase bg-brutalist-purple text-brutalist-white px-3 py-1 border-2 border-brutalist-black shadow-brutalist-sm">
-                3. JINXIE AI ORACLE
-              </span>
-              <InteractiveOracle />
-            </div>
+              <BrutalistCard variant="yellow" shadowSize="md" className="p-5 sm:p-6" rotate="rotate-0 md:rotate-[1deg]">
+                <div className="w-12 h-12 bg-brutalist-white border-2 border-brutalist-black flex items-center justify-center font-mono font-black text-xl mb-4 shadow-brutalist-sm">
+                  <MessageSquare size={24} strokeWidth={3} />
+                </div>
+                <h3 className="font-mono font-black text-lg uppercase mb-2">REACTIONS, NOT DRAMA</h3>
+                <p className="font-sans font-bold text-sm text-brutalist-black leading-relaxed">
+                  Public posts are designed around quick empathy signals like Oof! and F, keeping the feed fast, funny, and low-pressure.
+                </p>
+              </BrutalistCard>
 
+              <BrutalistCard variant="teal" shadowSize="md" className="p-5 sm:p-6 sm:col-span-2" rotate="rotate-0 md:rotate-[-1deg]">
+                <div className="flex flex-col sm:flex-row gap-5 sm:items-center">
+                  <div className="w-12 h-12 bg-brutalist-red border-2 border-brutalist-black flex shrink-0 items-center justify-center font-mono font-black text-xl shadow-brutalist-sm">
+                    <MapPin size={24} strokeWidth={3} />
+                  </div>
+                  <div>
+                    <h3 className="font-mono font-black text-lg uppercase mb-2">LOCATION WITH CONTEXT</h3>
+                    <p className="font-sans font-bold text-sm text-brutalist-black leading-relaxed">
+                      Map of Misery makes bad luck feel communal without turning every story into a personal address. Share place context when it helps the joke, skip it when it does not.
+                    </p>
+                  </div>
+                </div>
+              </BrutalistCard>
+            </div>
           </div>
         </div>
       </section>
@@ -345,7 +341,7 @@ export default function Home() {
               ⚡ FEATURES
             </span>
             <h2 className="font-mono font-black text-3xl sm:text-5xl uppercase tracking-tight mt-6">
-              WHAT'S INSIDE JINXLY?
+              WHAT&apos;S INSIDE JINXLY?
             </h2>
             <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-4 leading-relaxed">
               Your ultimate coping tool. Turn every embarrassing, clumsy moment into collective laughter.
@@ -417,7 +413,7 @@ export default function Home() {
               </div>
               <h3 className="font-mono font-black text-lg uppercase mb-2">ANTI-BADGES</h3>
               <p className="font-sans font-bold text-sm text-zinc-700 leading-relaxed">
-                Unlock reverse accomplishments. Spill coffee to get the 'Caffeine Chaos' badge, or trip in public to earn 'Gravity Tester'.
+                Unlock reverse accomplishments. Spill coffee to get the &apos;Caffeine Chaos&apos; badge, or trip in public to earn &apos;Gravity Tester&apos;.
               </p>
             </BrutalistCard>
 
@@ -610,6 +606,43 @@ export default function Home() {
                 </div>
               </BrutalistButton>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SUPPORT CTA SECTION */}
+      <section className="py-10 px-4 sm:py-14 sm:px-6 bg-brutalist-white border-b-4 border-brutalist-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center border-4 border-brutalist-black bg-brutalist-bg p-6 sm:p-8 shadow-brutalist-xl">
+            <div className="lg:col-span-8 flex flex-col sm:flex-row gap-5 sm:items-center">
+              <div className="w-16 h-16 bg-brutalist-red border-4 border-brutalist-black shadow-brutalist-sm flex shrink-0 items-center justify-center rotate-[-3deg]">
+                <LifeBuoy size={32} strokeWidth={3} />
+              </div>
+              <div>
+                <span className="font-mono font-black text-xs uppercase bg-brutalist-yellow border-2 border-brutalist-black px-2 py-1 shadow-brutalist-sm inline-block mb-3">
+                  🆘 SUPPORT CENTER
+                </span>
+                <h2 className="font-mono font-black text-2xl sm:text-4xl uppercase tracking-tight leading-tight">
+                  NEED HELP WITH YOUR BAD LUCK?
+                </h2>
+                <p className="font-sans font-bold text-sm sm:text-base text-zinc-700 mt-3 max-w-2xl leading-relaxed">
+                  Send us a bug report, billing question, feedback, or anything that needs a human response. Messages go directly to info@jinxly.app.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">
+              <a href="/support" className="w-full">
+                <BrutalistButton variant="primary" className="w-full flex items-center gap-2">
+                  Contact Support <ArrowRight size={18} strokeWidth={3} />
+                </BrutalistButton>
+              </a>
+              <a href="mailto:info@jinxly.app" className="w-full">
+                <BrutalistButton variant="white" className="w-full flex items-center gap-2">
+                  Email Us <MessageSquare size={18} strokeWidth={3} />
+                </BrutalistButton>
+              </a>
+            </div>
           </div>
         </div>
       </section>
