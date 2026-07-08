@@ -11,7 +11,21 @@ const subjectLabels: Record<string, string> = {
 };
 
 function sanitize(value: unknown, maxLength: number) {
-  return String(value ?? '').trim().slice(0, maxLength);
+  return String(value ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, maxLength);
+}
+
+// Best-effort per-IP throttle. Resets on cold start, but stops basic scripted
+// abuse from exhausting the Resend send quota / spamming the support inbox.
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const requestLog = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (requestLog.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  timestamps.push(now);
+  requestLog.set(ip, timestamps);
+  return timestamps.length > RATE_LIMIT_MAX_REQUESTS;
 }
 
 function escapeHtml(value: string) {

@@ -13,9 +13,27 @@ const spaceMono = Space_Mono({
   subsets: ["latin"],
 });
 
+const title = "Jinxly | Daily Misfortune Log & Social Network";
+const description = "Jinxly is a Neo-Brutalist daily misfortune journal and social network where you document life's mini-disasters, bad luck, and Nazar moments to share and laugh together with the community.";
+
 export const metadata: Metadata = {
-  title: "Jinxly | Daily Misfortune Log & Social Network",
-  description: "Jinxly is a Neo-Brutalist daily misfortune journal and social network where you document life's mini-disasters, bad luck, and Nazar moments to share and laugh together with the community.",
+  metadataBase: new URL("https://jinxly.app"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "https://jinxly.app",
+    siteName: "Jinxly",
+    images: [{ url: "/mockup.png" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/mockup.png"],
+  },
 };
 
 export default function RootLayout({
