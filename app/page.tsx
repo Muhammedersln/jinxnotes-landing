@@ -671,7 +671,7 @@ export default function Home() {
                   <h3 className="font-mono font-black text-3xl uppercase">Unlimited</h3>
                 </div>
                 <div className="bg-brutalist-black text-brutalist-white border-4 border-brutalist-black px-3 py-2 font-mono font-black text-xl shadow-brutalist-sm text-right">
-                  $2.99
+                  $4.99
                   <span className="block text-[10px] text-brutalist-yellow uppercase">/ month</span>
                 </div>
               </div>
@@ -679,13 +679,13 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                 <div className="bg-brutalist-white border-4 border-brutalist-black p-4 shadow-brutalist-sm">
                   <p className="font-mono font-black text-[10px] uppercase text-zinc-500">Monthly</p>
-                  <p className="font-mono font-black text-2xl">$2.99</p>
+                  <p className="font-mono font-black text-2xl">$4.99</p>
                   <p className="font-sans font-bold text-[11px] uppercase text-zinc-600">Cancel anytime</p>
                 </div>
                 <div className="bg-brutalist-teal border-4 border-brutalist-black p-4 shadow-brutalist-sm">
                   <p className="font-mono font-black text-[10px] uppercase text-zinc-700">Yearly</p>
-                  <p className="font-mono font-black text-2xl">$19.99</p>
-                  <p className="font-sans font-bold text-[11px] uppercase text-zinc-700">About $1.66/mo</p>
+                  <p className="font-mono font-black text-2xl">$39.99</p>
+                  <p className="font-sans font-bold text-[11px] uppercase text-zinc-700">About $3.33/mo</p>
                 </div>
               </div>
 
