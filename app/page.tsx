@@ -239,7 +239,7 @@ export default function Home() {
               {/* Generated smartphone mockup container */}
               <div className="relative border-4 border-brutalist-black bg-brutalist-white rounded-3xl overflow-hidden shadow-brutalist-xl rotate-0 md:rotate-[-2deg] transition-all hover:rotate-0 duration-300">
                 <img 
-                  src="/mockup.png" 
+                  src="/ss/ana-sayfa.png" 
                   alt="Jinxly app preview" 
                   className="w-full h-auto object-cover"
                 />
@@ -483,123 +483,134 @@ export default function Home() {
           </div>
 
           {/* Grid of mockup frames. Horizontal carousel on mobile, grid on desktop */}
-          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-thin">
+          <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-6 md:pb-0 snap-x snap-mandatory scrollbar-thin justify-items-center justify-center">
             
-            {/* Screen 1 */}
-            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
+            {/* Screen 1: Login */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
               <BrutalistCard 
-                variant="yellow" 
+                variant="white" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[-1deg] hover:rotate-0 transition-transform duration-300"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[-1deg] hover:rotate-0 transition-transform duration-300 p-0"
               >
-                {/* Mock Phone Status Bar */}
-                <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-brutalist-black pb-2 text-zinc-800">
-                  <span>10:09 AM</span>
-                  <span className="flex gap-1">📶 🔋 100%</span>
-                </div>
-                
-                {/* Placeholder content representing Screen 1 */}
-                <div className="flex-1 flex flex-col justify-center items-center text-center gap-3">
-                  <div className="bg-brutalist-white border-2 border-brutalist-black p-3 shadow-brutalist-sm rounded-full">
-                    <Zap size={24} className="text-brutalist-black" />
-                  </div>
-                  <h4 className="font-mono font-black text-sm uppercase">MISERY METER</h4>
-                  <p className="font-sans font-bold text-[10px] text-zinc-700 leading-tight">
-                    Logs misfortune levels in real-time and monitors your bad luck daily percentages.
-                  </p>
-                </div>
-                
-                {/* Mock Home indicator */}
-                <div className="w-20 h-1 bg-brutalist-black rounded-full mx-auto" />
+                <img 
+                  src="/ss/login.png" 
+                  alt="Jinxly Login" 
+                  className="w-full h-full object-cover"
+                />
               </BrutalistCard>
-              <span className="font-mono font-black text-xs uppercase tracking-wide">1. Daily Tracker Screen</span>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">1. Welcome Screen</span>
             </div>
 
-            {/* Screen 2 */}
-            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
+            {/* Screen 2: Home Page / Daily Tracker */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
               <BrutalistCard 
-                variant="teal" 
+                variant="white" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[2deg] hover:rotate-0 transition-transform duration-300"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[2deg] hover:rotate-0 transition-transform duration-300 p-0"
               >
-                {/* Mock Status Bar */}
-                <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-brutalist-black pb-2 text-zinc-800">
-                  <span>10:09 AM</span>
-                  <span className="flex gap-1">📶 🔋 100%</span>
-                </div>
-                
-                {/* Placeholder content representing Screen 2 */}
-                <div className="flex-1 flex flex-col justify-center items-center text-center gap-3">
-                  <div className="bg-brutalist-white border-2 border-brutalist-black p-3 shadow-brutalist-sm rounded-full">
-                    <MessageSquare size={24} className="text-brutalist-black" />
-                  </div>
-                  <h4 className="font-mono font-black text-sm uppercase">SOCIAL FEED</h4>
-                  <p className="font-sans font-bold text-[10px] text-zinc-700 leading-tight">
-                    Connect with clumsy people. React with F or Oof! on shared public misfortunes.
-                  </p>
-                </div>
-                
-                <div className="w-20 h-1 bg-brutalist-black rounded-full mx-auto" />
+                <img 
+                  src="/ss/ana-sayfa.png" 
+                  alt="Jinxly Dashboard" 
+                  className="w-full h-full object-cover"
+                />
               </BrutalistCard>
-              <span className="font-mono font-black text-xs uppercase tracking-wide">2. Public Feed Screen</span>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">2. Daily Tracker</span>
             </div>
 
-            {/* Screen 3 */}
-            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
+            {/* Screen 3: Calendar / History */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
               <BrutalistCard 
-                variant="purple" 
+                variant="white" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[-2deg] hover:rotate-0 transition-transform duration-300 text-brutalist-white"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[-2deg] hover:rotate-0 transition-transform duration-300 p-0"
               >
-                {/* Mock Status Bar */}
-                <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-zinc-700 pb-2 text-zinc-300">
-                  <span>10:09 AM</span>
-                  <span className="flex gap-1">📶 🔋 100%</span>
-                </div>
-                
-                {/* Placeholder content representing Screen 3 */}
-                <div className="flex-1 flex flex-col justify-center items-center text-center gap-3">
-                  <div className="bg-brutalist-white border-2 border-brutalist-black p-3 shadow-brutalist-sm rounded-full text-brutalist-black">
-                    <Sparkles size={24} />
-                  </div>
-                  <h4 className="font-mono font-black text-sm uppercase text-brutalist-white">JINXIE ORACLE</h4>
-                  <p className="font-sans font-bold text-[10px] text-zinc-300 leading-tight">
-                    Submit events to receive sarcastic roasts and daily cosmic karma calculations.
-                  </p>
-                </div>
-                
-                <div className="w-20 h-1 bg-brutalist-white rounded-full mx-auto" />
+                <img 
+                  src="/ss/calander.png" 
+                  alt="Jinxly Calendar" 
+                  className="w-full h-full object-cover"
+                />
               </BrutalistCard>
-              <span className="font-mono font-black text-xs uppercase tracking-wide">3. AI Oracle Screen</span>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">3. History Log</span>
             </div>
 
-            {/* Screen 4 */}
-            <div className="flex flex-col items-center gap-4 w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-center">
+            {/* Screen 4: Jinx Details */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
               <BrutalistCard 
-                variant="red" 
+                variant="white" 
                 shadowSize="lg" 
-                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black flex flex-col justify-between p-5 rotate-0 md:rotate-[1deg] hover:rotate-0 transition-transform duration-300"
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[1deg] hover:rotate-0 transition-transform duration-300 p-0"
               >
-                {/* Mock Status Bar */}
-                <div className="flex justify-between items-center w-full font-mono text-[9px] font-bold border-b border-brutalist-black pb-2 text-zinc-800">
-                  <span>10:09 AM</span>
-                  <span className="flex gap-1">📶 🔋 100%</span>
-                </div>
-                
-                {/* Placeholder content representing Screen 4 */}
-                <div className="flex-1 flex flex-col justify-center items-center text-center gap-3">
-                  <div className="bg-brutalist-white border-2 border-brutalist-black p-3 shadow-brutalist-sm rounded-full">
-                    <Award size={24} className="text-brutalist-black" />
-                  </div>
-                  <h4 className="font-mono font-black text-sm uppercase">ANTI-BADGES</h4>
-                  <p className="font-sans font-bold text-[10px] text-zinc-700 leading-tight">
-                    Build bad luck streaks and unlock badges for absurd real-life accomplishments.
-                  </p>
-                </div>
-                
-                <div className="w-20 h-1 bg-brutalist-black rounded-full mx-auto" />
+                <img 
+                  src="/ss/jinxly-detay.png" 
+                  alt="Jinxly Details" 
+                  className="w-full h-full object-cover"
+                />
               </BrutalistCard>
-              <span className="font-mono font-black text-xs uppercase tracking-wide">4. Profile & Badges Screen</span>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">4. Oracle Roast</span>
+            </div>
+
+            {/* Screen 5: Public Feed */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
+              <BrutalistCard 
+                variant="white" 
+                shadowSize="lg" 
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[-1deg] hover:rotate-0 transition-transform duration-300 p-0"
+              >
+                <img 
+                  src="/ss/feed.png" 
+                  alt="Jinxly Feed" 
+                  className="w-full h-full object-cover"
+                />
+              </BrutalistCard>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">5. Global Feed</span>
+            </div>
+
+            {/* Screen 6: Badges */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
+              <BrutalistCard 
+                variant="white" 
+                shadowSize="lg" 
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[2deg] hover:rotate-0 transition-transform duration-300 p-0"
+              >
+                <img 
+                  src="/ss/badges.png" 
+                  alt="Jinxly Badges" 
+                  className="w-full h-full object-cover"
+                />
+              </BrutalistCard>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">6. Anti-Badges</span>
+            </div>
+
+            {/* Screen 7: Scoreboard */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
+              <BrutalistCard 
+                variant="white" 
+                shadowSize="lg" 
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[-2deg] hover:rotate-0 transition-transform duration-300 p-0"
+              >
+                <img 
+                  src="/ss/scoreboard.png" 
+                  alt="Jinxly Leaderboard" 
+                  className="w-full h-full object-cover"
+                />
+              </BrutalistCard>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">7. Hall of Shame</span>
+            </div>
+
+            {/* Screen 8: Profile */}
+            <div className="flex flex-col items-center gap-4 w-[210px] sm:w-[230px] md:w-[200px] lg:w-[220px] shrink-0 snap-center mx-auto">
+              <BrutalistCard 
+                variant="white" 
+                shadowSize="lg" 
+                className="w-full aspect-[9/16] rounded-2xl overflow-hidden relative border-4 border-brutalist-black rotate-0 md:rotate-[1deg] hover:rotate-0 transition-transform duration-300 p-0"
+              >
+                <img 
+                  src="/ss/profile.png" 
+                  alt="Jinxly Profile" 
+                  className="w-full h-full object-cover"
+                />
+              </BrutalistCard>
+              <span className="font-mono font-black text-xs uppercase tracking-wide">8. Personal Profile</span>
             </div>
 
           </div>
